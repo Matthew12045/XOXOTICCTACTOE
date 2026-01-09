@@ -139,7 +139,7 @@ class AIEngine:
 
         return score
 
-    def minimax(self, board: Board, depth: int, alpha: float, beta: float, is_maximizing: bool) -> int:
+    def minimax(self, board: Board, depth: int, alpha: float, beta: float, is_maximizing: bool) -> float:
         winner = board.check_winner()
         if winner == self.ai_symbol:
             return self.WIN_SCORE
@@ -194,7 +194,7 @@ class AIPlayer(Player):
         super().__init__(symbol)
         # Adjust depth based on board size for performance
         # 3x3 has no depth limit (full search), larger boards use limited depth
-        depth_map = {3: float('inf'), 4: 5, 5: 4, 6: 3}
+        depth_map = {3: float('inf'), 4: 6, 5: 5, 6: 4}
         max_depth = depth_map.get(board_size, 4)
         self.engine = AIEngine(symbol, human_symbol, max_depth)
 
