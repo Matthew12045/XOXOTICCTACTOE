@@ -194,7 +194,7 @@ class AIPlayer(Player):
         super().__init__(symbol)
         # Adjust depth based on board size for performance
         # 3x3 has no depth limit (full search), larger boards use limited depth
-        depth_map = {3: float('inf'), 4: 6, 5: 5, 6: 4}
+        depth_map = {3: float('inf'), 4: 6, 5: 4, 6: 3}
         max_depth = depth_map.get(board_size, 4)
         self.engine = AIEngine(symbol, human_symbol, max_depth)
 
